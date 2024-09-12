@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+importar React, { useState } desde 'react';
 
-function App() {
+función App() {
+  const [inputTexto, setInputTexto] = useState('');
+
+  const handleSubmit = (evento) => {
+    evento.preventDefault();
+    alert(`Bienvenido!: ${inputTexto}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <formulario onSubmit={handleSubmit}>
+        <etiqueta>
+          Ingresa algún texto:
+          <input type="text" value={inputTexto} onChange={(evento) => setInputTexto(evento.target.value)} />
+        </etiqueta>
+        <botón type="submit">Enviar</botón>
+      </formulario>
     </div>
   );
 }
 
-export default App;
+exportar default App;
